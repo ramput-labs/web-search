@@ -1,0 +1,211 @@
+/* Chirp, self-hosted: latin first, latin-ext only when a page needs it */
+@font-face {
+	font-family: 'Chirp';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url('./assets/fonts/chirp/chirp-latin-400-normal.woff2') format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+		U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+	font-family: 'Chirp';
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: url('./assets/fonts/chirp/chirp-latin-500-normal.woff2') format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+		U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+	font-family: 'Chirp';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url('./assets/fonts/chirp/chirp-latin-700-normal.woff2') format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+		U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+	font-family: 'Chirp';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url('./assets/fonts/chirp/chirp-latin-ext-400-normal.woff2') format('woff2');
+	unicode-range:
+		U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+		U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+		U+A720-A7FF;
+}
+@font-face {
+	font-family: 'Chirp';
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: url('./assets/fonts/chirp/chirp-latin-ext-500-normal.woff2') format('woff2');
+	unicode-range:
+		U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+		U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+		U+A720-A7FF;
+}
+@font-face {
+	font-family: 'Chirp';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url('./assets/fonts/chirp/chirp-latin-ext-700-normal.woff2') format('woff2');
+	unicode-range:
+		U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+		U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+		U+A720-A7FF;
+}
+
+:root {
+	color-scheme: light;
+	/* black and white */
+	--bg: #ffffff;
+	--sidebar: #f9f9f9;
+	--surface: #ffffff;
+	--surface-2: #f4f4f4;
+	--surface-3: #ebebeb;
+	--border: #e8e8e8;
+	--border-strong: #d9d9d9;
+	--text: #0d0d0d;
+	--text-2: #5d5d5d;
+	--text-3: #8f8f8f;
+	--accent: var(--text);
+	--accent-bg: var(--surface-2);
+	--on-accent: var(--bg);
+	/* confidence: the only colour in the app */
+	--high: #10a37f;
+	--high-bg: #e7f6f1;
+	--mid: #d48806;
+	--mid-bg: #fdf4e1;
+	--low: #e5484d;
+	--low-bg: #fdecec;
+	/* the passage a source link highlights */
+	--mark: #fff1a8;
+	--good: var(--high);
+	--good-bg: var(--high-bg);
+	--warn: var(--mid);
+	--warn-bg: var(--mid-bg);
+	--bad: var(--low);
+	--bad-bg: var(--low-bg);
+	--shadow: 0 0 0 1px rgb(0 0 0 / 0.04), 0 4px 18px rgb(0 0 0 / 0.06);
+	--shadow-lg: 0 0 0 1px rgb(0 0 0 / 0.05), 0 12px 40px rgb(0 0 0 / 0.12);
+}
+
+/* dark: chosen explicitly, or following a dark system when no theme is chosen */
+:root[data-theme='dark'] {
+	color-scheme: dark;
+	/* near black */
+	--bg: #0a0a0a;
+	--sidebar: #000000;
+	--surface: #141414;
+	--surface-2: #1b1b1b;
+	--surface-3: #272727;
+	--border: #1f1f1f;
+	--border-strong: #2e2e2e;
+	--text: #ededed;
+	--text-2: #a3a3a3;
+	--text-3: #6e6e6e;
+	--high: #2fcb98;
+	--high-bg: #0e2a20;
+	--mid: #f2b440;
+	--mid-bg: #2b200d;
+	--low: #ff6b6f;
+	--low-bg: #2f1214;
+	--mark: #5c4d12;
+	--shadow: 0 0 0 1px rgb(255 255 255 / 0.07), 0 4px 18px rgb(0 0 0 / 0.6);
+	--shadow-lg: 0 0 0 1px rgb(255 255 255 / 0.08), 0 12px 40px rgb(0 0 0 / 0.8);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme='light']) {
+		color-scheme: dark;
+		/* near black */
+		--bg: #0a0a0a;
+		--sidebar: #000000;
+		--surface: #141414;
+		--surface-2: #1b1b1b;
+		--surface-3: #272727;
+		--border: #1f1f1f;
+		--border-strong: #2e2e2e;
+		--text: #ededed;
+		--text-2: #a3a3a3;
+		--text-3: #6e6e6e;
+		--high: #2fcb98;
+		--high-bg: #0e2a20;
+		--mid: #f2b440;
+		--mid-bg: #2b200d;
+		--low: #ff6b6f;
+		--low-bg: #2f1214;
+		--mark: #5c4d12;
+		--shadow: 0 0 0 1px rgb(255 255 255 / 0.07), 0 4px 18px rgb(0 0 0 / 0.6);
+		--shadow-lg: 0 0 0 1px rgb(255 255 255 / 0.08), 0 12px 40px rgb(0 0 0 / 0.8);
+	}
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+	margin: 0;
+}
+
+body {
+	background: var(--bg);
+	color: var(--text);
+	font-family:
+		'Chirp',
+		-apple-system,
+		BlinkMacSystemFont,
+		'Segoe UI',
+		Roboto,
+		Helvetica,
+		Arial,
+		sans-serif;
+	font-size: 15px;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+}
+
+button {
+	-webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+	outline: 2px solid var(--text);
+	outline-offset: 2px;
+}
+
+::selection {
+	background: var(--surface-3);
+}
+
+pre,
+code {
+	font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		transition-duration: 0.01ms !important;
+	}
+}

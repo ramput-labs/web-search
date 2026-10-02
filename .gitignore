@@ -1,0 +1,14 @@
+# Python
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+
+# Environment
+.env
+
+# Local tool settings
+.claude/settings.local.json
+
+# OS
+.DS_Store
