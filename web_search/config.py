@@ -9,14 +9,14 @@ def _list(value: str) -> tuple[str, ...]:
 @dataclass(frozen=True)
 class Settings:
     host: str = "127.0.0.1"
-    port: int = 8009
+    port: int = 8011
     log_level: str = "info"
     reload: bool = False
     workers: int = 1
     cors_origins: tuple[str, ...] = ()
-    kev_url: str = "http://localhost:8010"
+    kev_url: str = "http://localhost:8009"
     kev_timeout: float = 120.0
-    searxng_url: str = "http://localhost:8888"
+    searxng_url: str = "http://localhost:8080"
     threshold: float = 0.5
     max_rounds: int = 2
     results_per_query: int = 5

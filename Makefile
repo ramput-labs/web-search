@@ -8,7 +8,7 @@ SHELL := /bin/bash
 export
 
 HOST    ?= 127.0.0.1
-PORT    ?= 8009
+PORT    ?= 8011
 UI_HOST ?= 127.0.0.1
 UI_PORT ?= 5173
 
